@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 > This is just a concept! Not a production ready code!
 
+![Example Gif](https://github.com/Iamthelaw/magicnumbers/blob/master/public/example.gif)
+
 ### Description
 - There is about 10 000 registered uniq codes in database
 - Backend can get random code from this records for about 800ms (and this is a lot)
