@@ -1,4 +1,6 @@
 var express = require('express')
+var getRandomNumber = require('./src/utils')
+
 var app = express()
 
 app.use(function (req, res, next) {
@@ -8,8 +10,10 @@ app.use(function (req, res, next) {
 })
 
 app.get('/konkurs/api/number', function (req, res) {
-  let randInt = Math.random() * (100 - 1) + 1
-  res.json({code: randInt, name: 'John Doe'})
+  // faking long response
+  setTimeout(() => {
+    res.json({code: getRandomNumber(), name: 'John Doe'})
+  }, 800)
 })
 
 app.listen(3001, function () {

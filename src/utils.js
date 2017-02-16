@@ -5,4 +5,5 @@ function getRandomNumber () {
   return result
 }
 
-export {getRandomNumber}
+exports['default'] = getRandomNumber
+module.exports = exports['default']

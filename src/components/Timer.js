@@ -1,7 +1,7 @@
 import React from 'react'
 import Winner from './Winner'
 
-import {getRandomNumber} from '../utils'
+import getRandomNumber from '../utils'
 
 class Timer extends React.Component {
   constructor () {
