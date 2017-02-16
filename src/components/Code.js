@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-class Code extends React.Component {
+class Code extends Component {
   render () {
     return (
       <div className={this.props.animatedCss}>
