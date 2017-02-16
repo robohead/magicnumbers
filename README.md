@@ -13,9 +13,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - When user hits spacebar he expect to see a winning code and a winner name
 - Requests for real winners is called when codes are rolling, not when user hits spacebar
 
+### Fake api
+To start express server with fake api run `node fake-api.js`
+
 ### ToDo
 I have some trouble with syncing between animation and code generation.
-
 
 ### Reqs
 - all that in create-react-app
