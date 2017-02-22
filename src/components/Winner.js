@@ -17,7 +17,7 @@ class Winner extends React.Component {
   }
 
   getWinner () {
-    axios.get('http://localhost:3001/konkurs/api/number')
+    axios.get('/konkurs/api/number')
       .then((res) => {
         this.setState({winner: res.data})
       })
