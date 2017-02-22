@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Timer from './components/Timer'
-import Matrix from './components/Matrix'
+import Matrix from './components/Matrix/index'
 import './App.css'
 
 class App extends Component {
