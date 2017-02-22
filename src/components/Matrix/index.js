@@ -3,7 +3,7 @@ import './matrix.css'
 
 class Matrix extends Component {
 
-  matrixVars () {
+  matrixVars (props) {
     var c = document.getElementById('c')
     var ctx = c.getContext('2d')
 
@@ -28,16 +28,26 @@ class Matrix extends Component {
     }
 
     // drawing the characters
-    function draw () {
+    function draw (props) {
       // Black BG for the canvas
       // translucent BG to show trail
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.2)'
       ctx.fillRect(0, 0, c.width, c.height)
 
-      ctx.fillStyle = '#004e00' // green text
+      let colors = [
+        '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
+        '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50',
+        '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800',
+        '#FF5722', '#795548'
+      ] // green text
       ctx.font = font_size + 'px arial'
       // looping over drops
       for (var i = 0; i < drops.length; i++) {
+        if (this.props && this.props.stop) {
+          ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)]
+        } else {
+          ctx.fillStyle = '#000'
+        }
         // a random chinese character to print
         var text = chinese[Math.floor(Math.random() * chinese.length)]
         // x = i*font_size, y = value of drops[i]*font_size
@@ -54,11 +64,11 @@ class Matrix extends Component {
       }
     }
 
-    setInterval(draw, 33)
+    setInterval(draw.bind(this), 33)
   }
 
-  componentDidMount () {
-    this.matrixVars()
+  componentDidMount (props) {
+    this.matrixVars(props)
   }
 
   render () {

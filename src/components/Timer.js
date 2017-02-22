@@ -1,5 +1,6 @@
 import React from 'react'
 import Winner from './Winner'
+import Matrix from './Matrix/index'
 
 import getRandomNumber from '../utils'
 
@@ -42,6 +43,7 @@ class Timer extends React.Component {
   render () {
     return (
       <div>
+        <Matrix stop={this.state.stop} />
         <h1>{this.state.ready ? '' : 'Loading...'}</h1>
         <Winner
           stop={this.state.stop} code={this.state.current}
