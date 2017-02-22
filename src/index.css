@@ -5,4 +5,8 @@ body {
   background-color: black;
   color: white;
   font-size: 14px;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
 }
