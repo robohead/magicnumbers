@@ -31,6 +31,14 @@
     animation-duration: 1s;
 }
 
+canvas {
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:0;
+    border:0px solid #000;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

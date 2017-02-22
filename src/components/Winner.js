@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Code from './Code'
+import Confetti from './Confetti'
 
 class Winner extends React.Component {
   constructor (props) {
@@ -37,6 +38,7 @@ class Winner extends React.Component {
   render () {
     return (
       <div className='winner' style={this.props.ready ? {} : {display: 'none'}}>
+        {this.props.stop && <Confetti />}
         <Code
           code={this.props.stop ? this.state.winner.code : this.props.code}
           animatedCss={this.props.stop ? 'animated rubberBand' : 'animated infinite flipInX'} />
