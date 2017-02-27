@@ -13,6 +13,7 @@ class Timer extends React.Component {
       current: '',
       ready: false,
       winner: null,
+      wait: false,
     }
   }
 
@@ -27,27 +28,30 @@ class Timer extends React.Component {
   startTimer () {
     let intervalId = setInterval(() => {
       this.setState({current: getRandomNumber()})
-    }, 800)
+    }, 200)
     this.setState({
-        intervalId: intervalId, current: getRandomNumber(), winner: null
+        intervalId: intervalId, current: getRandomNumber(), winner: null,
+        wait: false
     })
   }
 
   stopTimer () {
     clearInterval(this.state.intervalId)
-    this.getWinner()
+    setTimeout(() => {
+        this.getWinner()
+    }, 2000)
   }
 
   getWinner () {
     axios.get('/konkurs/api/number')
       .then((res) => {
-        this.setState({winner: res.data})
+        this.setState({winner: res.data, wait: false})
       })
   }
 
   handleSpacebar (event) {
     if (event.code === 'Space') {
-      this.setState({stop: !this.state.stop})
+      this.setState({wait: true, stop: !this.state.stop})
       this.state.stop ? this.stopTimer() : this.startTimer()
     }
   }
@@ -57,11 +61,9 @@ class Timer extends React.Component {
       <div>
         <Matrix stop={this.state.stop} />
         <h1>{this.state.ready ? '' : 'Loading...'}</h1>
-        {this.state.stop && !this.state.winner
-        ? <div>Searching...</div>
-        : <Winner
+        <Winner
             stop={this.state.stop} winner={this.state.winner}
-            code={this.state.current} ready={this.state.ready} />}
+            code={this.state.wait ? 'Loading' : this.state.current} ready={this.state.ready} />}
       </div>
     )
   }
