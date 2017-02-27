@@ -1,15 +1,13 @@
 import React from 'react'
 
-class Code extends React.Component {
-  render () {
+const Code = props => {
     return (
-      <div className={this.props.animatedCss}>
+      <div className={props.animatedCss}>
         <span className='item'>
-          {this.props.code || 'Loading...'}
+          {props.code || 'Loading...'}
         </span>
       </div>
     )
-  }
 }
 
 export default Code
