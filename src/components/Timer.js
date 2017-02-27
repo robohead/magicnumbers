@@ -10,7 +10,8 @@ class Timer extends React.Component {
     this.state = {
       stop: false,
       current: '',
-      ready: false
+      ready: false,
+      wait: false
     }
   }
 
@@ -35,8 +36,12 @@ class Timer extends React.Component {
 
   handleSpacebar (event) {
     if (event.code === 'Space') {
-      this.setState({stop: !this.state.stop})
-      this.state.stop ? this.stopTimer() : this.startTimer()
+      this.setState({wait: true})
+      setTimeout(() => {
+        this.setState({wait: false})
+        this.setState({stop: !this.state.stop})
+        this.state.stop ? this.stopTimer() : this.startTimer()
+      }, 2000)
     }
   }
 
@@ -46,7 +51,7 @@ class Timer extends React.Component {
         <Matrix stop={this.state.stop} />
         <h1>{this.state.ready ? '' : 'Loading...'}</h1>
         <Winner
-          stop={this.state.stop} code={this.state.current}
+          stop={this.state.stop} code={this.state.wait ? 'Победитель:' : this.state.current}
           ready={this.state.ready} />
       </div>
     )
