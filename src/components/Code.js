@@ -3,10 +3,10 @@ import React from 'react'
 class Code extends React.Component {
   render () {
     return (
-      <div className={this.props.animatedCss}>
-        <span className='item'>
+      <div className='item'>
+        <div className={this.props.animatedCss}>
           {this.props.code || 'Loading...'}
-        </span>
+        </div>
       </div>
     )
   }

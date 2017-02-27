@@ -12,7 +12,7 @@ app.use(function (req, res, next) {
 app.get('/konkurs/api/number', function (req, res) {
   // faking long response
   setTimeout(() => {
-    res.json({code: getRandomNumber(), name: 'John Doe'})
+    res.json({code: getRandomNumber(), name: 'Ирина Васильевна Бондарчук-Папироскина', phone: '+79095889900'})
   }, 800)
 })
 
