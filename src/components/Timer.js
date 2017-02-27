@@ -25,7 +25,7 @@ class Timer extends React.Component {
   startTimer () {
     let intervalId = setInterval(() => {
       this.setState({current: getRandomNumber()})
-    }, 800)
+    }, 200)
     this.setState({intervalId: intervalId, current: getRandomNumber()})
   }
 

@@ -41,8 +41,13 @@ class Winner extends React.Component {
         {this.props.stop && <Confetti />}
         <Code
           code={this.props.stop ? this.state.winner.code : this.props.code}
-          animatedCss={this.props.stop ? 'animated rubberBand' : 'animated infinite flipInX'} />
-        <div className={this.props.stop ? 'winner-name animated fadeInDown' : 'winner-name'}><span>{this.props.stop ? this.state.winner.name : ''}</span></div>
+          animatedCss={this.props.stop ? 'animated rubberBand' : 'animated infinite pulse'} />
+        <div className={this.props.stop ? 'winner-name animated fadeInDown' : 'winner-name'}>
+
+          <span>{this.props.stop ? this.state.winner.name : ''}</span>
+          <span className='winner-phone'>{this.props.stop ? this.state.winner.phone : ''}</span>
+
+        </div>
       </div>
     )
   }

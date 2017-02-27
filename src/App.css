@@ -20,6 +20,7 @@
     padding: 30px;
     font-size: 36px;
     font-family: monospace;
+    position: relative;
 }
 
 .winner {
@@ -28,6 +29,11 @@
 }
 
 .winner div {
+    animation-delay: 0s;
+    animation-duration: .2s;
+}
+
+.animated.rubberBand{
     animation-delay: 0s;
     animation-duration: .8s;
 }
@@ -42,6 +48,11 @@
     box-shadow: 1px 2px 8px rgba(0,0,0,0.3);
     animation-duration: 1s;
     color: #000;
+}
+
+.winner-phone{
+    display: block;
+    padding-top: 10px;
 }
 
 .winner-name.animated{
