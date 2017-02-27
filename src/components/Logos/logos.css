@@ -1,0 +1,21 @@
+.logo-wrap{
+    display: flex;
+    width: 1200px;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 2;
+    top: 10%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.logo-wrap img{
+    flex-basis: 30%;
+}
+
+.dvep-logo{
+    fill: red;
+}
